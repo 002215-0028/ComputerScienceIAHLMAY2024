@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update
+{% endblock %}
+
+{% block main %}
+<p>{{message}}</p>
+<form action = "/update" method="post">
+    <div class="centre">
+        <input autocomplete="off" autofocus class="form-control" name="order_id" placeholder="Order ID" type="INT">
+        
+        <button type="submit">submit</button>
+    </div>
+    
+</form>
+ 
+{% endblock %}

@@ -1,0 +1,62 @@
+body {
+    background-color: #e9e9e9;
+    border: #5B4481;
+    border-style: hidden;
+}
+h1{
+    text-align: center;
+    color: rgba(65, 5, 23, 0.719);
+    font-family: "font-family:Times New Roman";
+    text-decoration: underline;
+}
+h3{
+    text-align: center;
+    color: rgba(65, 29, 5, 0.719);
+    font-family: "font-family:Times New Roman";
+    text-decoration: underline;
+}
+th{
+    color: rgba(65, 29, 5, 0.719);
+    font-family: "font-family:Times New Roman";
+    font-weight: bold;
+}
+td{
+    color: rgba(65, 29, 5, 0.719);
+    font-family: "font-family:Times New Roman";
+}
+    
+
+p{
+    color: rgba(65, 29, 5, 0.719);
+    font-family: "font-family:Times New Roman";
+    text-align: center;
+}
+label{
+    color: rgba(65, 29, 5, 0.719);
+    font-family: "font-family:Times New Roman;"
+}
+.centre {
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    
+  }
+button{
+    height: 40px;
+    width: 100px;
+    color: rgba(65, 29, 5, 0.719);
+    font-family:"Times New Roman;";
+
+}
+span{
+    color: rgba(65, 29, 5, 0.719);
+    font-family:"Times New Roman;";
+}
+li{
+    color: rgba(65, 29, 5, 0.719);
+    font-family:"Times New Roman;";
+}
+
+

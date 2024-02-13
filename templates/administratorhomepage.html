@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Administrator Homepage
+{% endblock %}
+
+{% block main %}
+            <form action = "/administratorhomepage" method="post">
+                <div class="centre">
+                <input type="radio" id="orderdetails" name="option" value="orderdetails">
+                <label  color: rgba(65, 29, 5, 0.719); style="font-family:Times New Roman;" for="orderdetails">order details</label><br>
+                <input type="radio" id="employeedetails" name="option" value="employeedetails">
+                <label  color: rgba(65, 29, 5, 0.719); style="font-family:Times New Roman;" for="employeedetails">employee details</label><br>
+                <input type="radio" id="neworder" name="option" value="neworder">
+                <label  color: rgba(65, 29, 5, 0.719); style="font-family:Times New Roman;" for="neworder">new order</label><br>
+                <input type="radio" id="completeorder" name="option" value="completeorder">
+                <label  color: rgba(65, 29, 5, 0.719); style="font-family:Times New Roman;" for="completeorder">complete order</label><br>
+                <input type="radio" id="orderhistory" name="option" value="orderhistory">
+                <label  color: rgba(65, 29, 5, 0.719); style="font-family:Times New Roman;" for="orderhistory">order history</label><br>
+                <button type="submit">enter</button>
+            </div>
+                
+            </form>
+{% endblock %}

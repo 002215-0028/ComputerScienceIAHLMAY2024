@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Customer Homepage
+{% endblock %}
+
+{% block main %}
+            <form action = "/customerhomepage" method="post">
+                <div>
+                <input type="radio" id="update" name="choice" value="update">
+                <label  color: rgba(65, 29, 5, 0.719); style="font-family:Times New Roman;" for="update">update</label><br>
+                <input type="radio" id="payment" name="choice" value="payment">
+                <label  color: rgba(65, 29, 5, 0.719); style="font-family:Times New Roman;" for="payment">payment</label><br>
+                <input type="radio" id="contactteam" name="choice" value="contactteam">
+                <label  color: rgba(65, 29, 5, 0.719); style="font-family:Times New Roman;" for="contactteam">contact team</label><br>
+                </div>
+                <button class="btn btn-primary" color: rgba(65, 29, 5, 0.719) style="font-family:Times New Roman;" type="submit">enter</button>
+            </form>
+{% endblock %}

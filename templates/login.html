@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block head %}{% endblock %}
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <p>{{message}}</p>
+    <form action="/" method="post">
+        <div class="centre">
+            <input autocomplete="off" autofocus class="form-control" name="user_id" placeholder="User_id" type="int">
+            <p></p>
+            <input class="form-control" name="password" placeholder="Password" type="password">
+            <p></p>
+            <input type="radio" id="employee" name="user" value="employee">
+            <label for="employee">employee</label><br>
+            <input type="radio" id="administrator" name="user" value="administrator">
+            <label for="administrator">administrator</label><br>
+            <input type="radio" id="customer" name="user" value="customer">
+            <label for="customer">customer</label><br>
+            <button type="submit">enter</button>
+        </div>
+    </form>
+{% endblock %}

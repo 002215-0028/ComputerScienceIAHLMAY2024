@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Finance
+{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block main %}
+<nav class="navbar navbar-light" style="background-color: #8d6940;">
+    <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mr-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/indexfinance">Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contactteam">Contact Owner</a></li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+            </ul>
+    </div>
+</nav>
+            <form method="post" action = "/indexfinance">
+              <div>
+                <input type="radio" id="docs_in_bank" name="field" value="docs_in_bank">
+                <label for="docs_in_bank">Are the documents in the bank?</label><br>
+                <input type="radio" id="docs_submitted" name="field" value="docs_submitted">
+                <label for="docs_submitted"> Are the documents submitted?</label><br>
+                <input type="radio" id="request_payment" name="field" value="request_payment">
+                <label for="request_payment">Has the payment been requested?</label><br>
+                <input type="radio" id="payment_received" name="field" value="payment_received">
+                <label for="payment_received">Has the payment been received?</label><br>
+                <input type="radio" id="no" name="data" value="no">
+                <label for="no">no</label><br>
+                <input type="radio" id="yes" name="data" value="yes">
+                <label for="yes">yes</label><br>
+                <button type="submit">enter</button>
+            </div>
+            </form>
+            {%for o in order%}
+            <p>Overview</p>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Order ID
+                  <span>{{ o["order_id"] }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Order Name
+                  <span>{{ o["order_name"] }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Extra Details
+                    <span>{{ o["extra_details"] }}</span>
+                  </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Feedback from administrator
+                    <span>{{ o["feedback_from_administrator"] }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Feedback from customer
+                  <span>{{ o["feedback_from_customer"] }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Predicted Time
+                  <span>{{ o["predicted_time"] }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Completed?
+                  <span>{{ o["completed"] }}</span>
+              </li>
+                {% endfor %}
+            </ul>
+            <p></p>
+            {%for f in finances%}
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Finance ID
+                  <span class="badge badge-primary badge-pill">{{ f["finance_id"] }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Are the documents in the bank?
+                  <span class="badge badge-primary badge-pill">{{ f["docs_in_bank"] }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Are the documents submitted?
+                  <span class="badge badge-primary badge-pill">{{ f["docs_submitted"] }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Has the payment been requested?
+                    <span class="badge badge-primary badge-pill">{{f["request_payment"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Has the payment been received?
+                    <span class="badge badge-primary badge-pill">{{ f["payment_received"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Updated Last at
+                    <span class="badge badge-primary badge-pill">{{ f["updated_at"] }}</span>
+                  </li>
+                  {% endfor %}
+              </ul>
+{% endblock %}

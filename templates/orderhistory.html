@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Order History
+{% endblock %}
+
+
+{% block main %}
+<nav class="navbar navbar-light" style="background-color: #8d6940;">
+    <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mr-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/update">Order Details</a></li>
+                <li class="nav-item"><a class="nav-link" href="/employeedetails">Employee Details</a></li>
+                <li class="nav-item"><a class="nav-link" href="/neworder">New Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="/completeorder">Complete Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="/orderhistory">Orders History</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+            </ul>
+    </div>
+</nav>
+            <table class = "table tablestriped">
+            <thead>
+                <tr>
+                    <th>order_id</th>
+                    <th>Name</th>
+                    <th>extra_details</th>
+                    <th>predicted_time</th>
+                    <th>feedback from administrator</th>
+                    <th>feedback from customer</th>
+                    <th>paddy quality</th>
+                    <th>paddy quantity</th>
+                    <th>paddy rate</th>
+                    <th>paddy ordered</th>
+                    <th>paddy stored</th>
+                    <th>cleaning</th>
+                    <th>removal of husk</th>
+                    <th>paddy separation</th>
+                    <th>polishing</th>
+                    <th>parboiling</th>
+                    <th>drying</th>
+                    <th>packaging</th>
+                    <th>shipment company</th>
+                    <th>shipment location</th>
+                    <th>shipment number</th>
+                    <th>truck reached</th>
+                    <th>truck loaded</th>
+                    <th>truck left</th>
+                    <th>reached container</th>
+                    <th>container loaded</th>
+                    <th>container left</th>
+                    <th>delivered</th>
+                    <th>docs in bank</th>
+                    <th>docs submitted</th>
+                    <th>request payment</th>
+                    <th>payment received</th>
+                </tr>
+            </head>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                
+                    <td>{{ order["order_id"] }}</td>
+                    <td>{{ order["order_name"] }}</td>
+                    <td>{{ order["extra_details"]}}</td>
+                    <td>{{ order["predicted_time"]}}</td>
+                    <td>{{ order["feedback_from_administrator"]}}</td>
+                    <td>{{ order["feedback_from_customer"]}}</td>
+                {%endfor%}
+                {% for p in production %}
+                    <td>{{ p["paddy_quality"]}}</td>
+                    <td>{{ p["paddy_quantity"]}}</td>
+                    <td>{{ p["paddy_rate"]}}</td>
+                    <td>{{ p["paddy_ordered"]}}</td>
+                    <td>{{ p["paddy_stored"]}}</td>
+                    <td>{{ p["cleaning"]}}</td>
+                    <td>{{ p["removal_of_husk"]}}</td>
+                    <td>{{ p["paddy_separation"]}}</td>
+                    <td>{{ p["polishing"]}}</td>
+                    <td>{{ p["parboiling"]}}</td>
+                    <td>{{ p["drying"]}}</td>
+                    <td>{{ p["packaging"]}}</td>
+                {%endfor%}
+                {% for s in shipment %}
+                    <td>{{ s["shipment_company"]}}</td>
+                    <td>{{ s["shipment_location"]}}</td>
+                    <td>{{ s["shipment_numberTEXT"]}}</td>
+                    <td>{{ s["truck_reached"]}}</td>
+                    <td>{{ s["truck_loaded"]}}</td>
+                    <td>{{ s["truck_left"]}}</td>
+                    <td>{{ s["reached_container"]}}</td>
+                    <td>{{ s["container_loaded"]}}</td>
+                    <td>{{ s["container_left"]}}</td>
+                    <td>{{ s["delivered"]}}</td>
+                {%endfor%}
+                {% for f in finance %}
+                    <td>{{ f["docs_in_bank"]}}</td>
+                    <td>{{ f["docs_submitted"]}}</td>
+                    <td>{{ f["request_payment"]}}</td>
+                    <td>{{ f["payment received"]}}</td>
+                </tr>
+                {%endfor%} 
+            </tbody>
+            </table>
+{% endblock %}

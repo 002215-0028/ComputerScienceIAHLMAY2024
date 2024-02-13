@@ -1,0 +1,197 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Order Details
+{% endblock %}
+{% block main %}
+
+<nav class="navbar navbar-light" style="background-color: #8d6940;">
+    <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mr-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/update">Order Details</a></li>
+                <li class="nav-item"><a class="nav-link" href="/employeedetails">Employee Details</a></li>
+                <li class="nav-item"><a class="nav-link" href="/neworder">New Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="/completeorder">Complete Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="/orderhistory">Orders History</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+            </ul>
+    </div>
+</nav>
+    {%for o in orders%}
+    <p>Overview</p>
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Order ID
+          <span>{{ o["order_id"] }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Order Name
+          <span>{{ o["order_name"] }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Extra Details
+            <span>{{ o["extra_details"] }}</span>
+          </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Feedback from administrator
+            <span>{{ o["feedback_from_administrator"] }}</span>
+        </li>
+        <p>
+          <form method="POST" action = "/orderdetails">
+            <div>
+              <input autocomplete="off" autofocus class="form-control" name="data" placeholder="Enter" type="text">
+              <button type="submit">enter</button>
+            </div>
+          </form>
+        </p>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Feedback from customer
+            <span>{{ o["feedback_from_customer"] }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Predicted Time
+            <span>{{ o["predicted_time"] }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Completed?
+            <span>{{ o["completed"] }}</span>
+        </li>
+          {% endfor %}
+      </ul>
+    <p>Production Status</p>
+    {%for p in production%}
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Quality Bought
+                  <span>{{ p["paddy_quality"] }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Quantity Bought
+                  <span>{{ p["paddy_quality"] }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Rate of Purchase
+                    <span>{{p["paddy_rate"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Purchase made
+                    <span>{{ p["paddy_ordered"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Supply stored
+                    <span>{{ p["paddy_stored"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Cleaning
+                    <span>{{ p["cleaning"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Removal of Husk 
+                    <span>{{ p["removal_of_husk"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Paddy Separation
+                    <span>{{ p["paddy_separation"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Polishing
+                    <span>{{ p["polishing"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Parboiling
+                    <span>{{ p["parboiling"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Drying
+                    <span>{{ p["drying"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Packaging
+                    <span>{{ p["packaging"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Updated Last at
+                    <span>{{ p["updated_at"] }}</span>
+                  </li>
+    {% endfor %}
+            </ul>
+    <p>Shipment status</p>
+            {%for s in shipment%}
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Shipment Company
+                  <span>{{ s["shipment_company"] }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Shipment Location
+                  <span>{{ s["shipment_location"] }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Shipment Number
+                    <span>{{s["shipment_numberTEXT"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Truck Reached
+                    <span>{{ s["truck_reached"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Truck Loaded
+                    <span>{{ s["truck_loaded"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Truck Left
+                    <span>{{ s["truck_left"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Reached Container
+                    <span>{{ s["reached_container"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Container Loaded
+                    <span>{{ s["container_loaded"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Container Left
+                    <span>{{ s["container_left"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Delivered
+                    <span>{{ s["delivered"] }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Updated Last at
+                    <span>{{ s["updated_at"] }}</span>
+                  </li>
+                  {% endfor %}
+                </ul>
+    <p>Finance Status</p>
+                {%for f in finance%}
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Are the documents in the bank?
+                      <span >{{ f["docs_in_bank"] }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Are the documents submitted?
+                      <span>{{ f["docs_submitted"] }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Has the payment been requested?
+                        <span>{{f["request_payment"] }}</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Has the payment been received?
+                        <span>{{ f["payment_received"] }}</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Updated Last at
+                        <span>{{ f["updated_at"] }}</span>
+                      </li>
+                      {% endfor %}
+                  </ul>
+{% endblock %}
